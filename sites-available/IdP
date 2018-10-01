@@ -1,0 +1,78 @@
+server eduroam {
+
+	listen {
+		type = auth
+
+		ipaddr = *
+	
+		port = 0
+
+		limit {
+		      max_connections = 16
+
+		      lifetime = 0
+
+		      idle_timeout = 30
+		}
+	}
+
+	listen {
+		type = acct
+
+		ipaddr = *
+
+		port = 0
+
+		limit {
+		}
+	}
+
+	authorize {
+        	filter_username
+	
+	        auth_log
+        
+		suffix
+
+                eap
+	}
+
+	authenticate {
+               eap
+	}
+
+	preacct {
+        	suffix
+	}
+
+	accounting {
+	}
+
+	session {
+	}
+
+	post-auth {
+        	update {
+                	&reply: += &session-state:
+        	}
+        	reply_log
+        	remove_reply_message_if_eap
+        	Post-Auth-Type REJECT {
+                	attr_filter.access_reject
+                	eap
+                	remove_reply_message_if_eap
+        	}
+	}
+
+	pre-proxy {
+ 	 	pre_proxy_log
+		if (Packet-Type != Accounting-Request) {
+        		attr_filter.pre-proxy
+    		}
+	}
+
+	post-proxy {
+		attr_filter.post-proxy
+		post_proxy_log
+	}
+}
