@@ -1,0 +1,47 @@
+# yum update
+# yum remove firewalld
+# yum install iptables-services
+
+# vi /etc/sysconfig/iptables
+
+# sample configuration for iptables service
+# you can edit this manually or use system-config-firewall
+# please do not ask us to add additional ports/services to this default configuration
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 1812 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 1813 -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+
+# systemctl restart iptables
+
+adduser eduroam
+passwd eduroam
+# yum install net-tools
+# ifconfig
+# yum install freeradius freeradius-utils freeradius-ldap freeradius-doc git wget screen
+# yum install libnl-devel openssl-devel
+# yum groupinstall "Development tools"
+# yum install openldap openldap-clients openldap-servers
+# mkdir sources
+# cd sources/
+# git clone git://w1.fi/hostap.git
+# cd hostap/wpa_supplicant/
+# cp defconfig .config
+# vi .config 
+# make eapol_test
+# cp eapol_test /usr/local/bin
+# cd ..
+# git clone https://github.com/GEANT/eduroam-training-FreeRADIUS-configuration.git raddb
+# cd raddb/
+# git branch -a | grep -v HEAD | perl -ne 'chomp($_); s|^\*?\s*||; if (m|(.+)/(.+)| && not $d{$2}) {print qq(git branch --track $2 $1/$2\n)} else {$d{$_}=1}' | bash -xfs
+# vi /etc/group
+add eduroam to group wheel
