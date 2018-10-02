@@ -1,0 +1,8 @@
+dn: uid=user1,dc=training,dc=eduroam,dc=si
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+sn: user1
+cn: eduroam training user1
+uid: user1
+userPassword: {SSHA}9WWbxKXfatGyDCJWgLU2E+pMXLg/FgCn

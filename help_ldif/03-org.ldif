@@ -1,0 +1,5 @@
+dn: dc=training,dc=eduroam,dc=si
+o: eduroam training test
+objectClass: organization
+objectClass: dcObject
+dc: training

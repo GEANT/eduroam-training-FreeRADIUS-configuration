@@ -1,0 +1,32 @@
+LDAP service installation and configuration (CentOS 7.x)
+
+Predefined users : 
+
+cn=admin,dc=training,dc=eduroam,dc=si eduroam
+uid=user1,dc=training,dc=eduroam,dc=si eduroam
+
+# yum install openldap openldap-clients openldap-servers
+# systemctl enable slapd
+# systemctl start slapd
+
+# slappasswd -h {SSHA} -s eduroam
+
+# ldapmodify -Y EXTERNAL  -H ldapi:/// -f 01-db.ldif 
+
+# cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+# chown ldap:ldap /var/lib/ldap/*
+
+# ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+# ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif 
+# ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+
+# ldapadd -Y EXTERNAL -H ldapi:/// -f 02-accessdb.ldif 
+
+# ldapadd -Y EXTERNAL -H ldapi:/// -f 03-org.ldif 
+
+# ldapadd -Y EXTERNAL -H ldapi:/// -f 04-adduser.ldif 
+
+
+https://www.itzgeek.com/how-tos/linux/centos-how-tos/step-step-openldap-server-configuration-centos-7-rhel-7.html
+
+
