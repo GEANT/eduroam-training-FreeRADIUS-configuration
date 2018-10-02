@@ -1,7 +1,7 @@
 # FreeRADIUS configuration for IdP
 FreeRADIUS configuration for the eduroam training, where FreeRADIUS act like simple IdP only authentication service using LDAP for storing user credentials. 
 
-##Instaling FreeRADIUS can be done issuing follow commands : 
+## Instaling FreeRADIUS can be done issuing follow commands : 
 ```
 # yum install freeradius freeradius-utils freeradius-ldap freeradius-doc git wget
 # cd /etc
