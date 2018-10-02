@@ -3,7 +3,7 @@ FreeRADIUS configuration for the eduroam training, where FreeRADIUS act like sim
 
 ##Instaling FreeRADIUS can be done issuing follow commands : 
 ```
-# yum install freeradius freeradius-utils freeradius-ldap freeradius-doc git
+# yum install freeradius freeradius-utils freeradius-ldap freeradius-doc git wget
 # cd /etc
 # rm /etc/raddb
 # git clone https://github.com/GEANT/eduroam-training-FreeRADIUS-configuration.git raddb
@@ -13,9 +13,12 @@ FreeRADIUS configuration for the eduroam training, where FreeRADIUS act like sim
 ```
 To change inital base DN use follow command like root in /etc/raddb directory :
 
-`grep -rli 'dc=training,dc=eduroam,dc=si' * | egrep -v '*README*' | xargs -i@ sed -i 's/dc=training,dc=eduroam,dc=si/new-word/g' @`
+`# grep -rli 'dc=training,dc=eduroam,dc=si' * | egrep -v '*README*' | xargs -i@ sed -i 's/dc=training,dc=eduroam,dc=si/new-word/g' @`
 
 ## Instaling eapol_test can be done issuing follow commands : 
+
+[Help link](http://deployingradius.com/scripts/eapol_test/)
+
 ```
 # yum install libnl-devel openssl-devel
 # yum groupinstall "Development tools"
@@ -34,8 +37,11 @@ edit defconfig to enable (remove #) CONFIG_EAPOL_TEST=y
 
 ## Running FreeRADIUS service :
 Enable `# systemctl enable radiusd`
+
 Start `# systemctl start radiusd`
+
 Stop `# systemctl stop radiusd`
+
 Debug
 ```
 # radiusd -Xf
