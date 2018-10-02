@@ -5,3 +5,5 @@ eapol_test configuration files
 # eapol_test -c user1-ttls-pap-diff_realm.conf -s testing123 -r 0 
 # eapol_test -c user1-ttls-pap-wrong_ca.conf -s testing123 -r 0 
 # eapol_test -c user1-ttls-pap-wrong_passwd.conf -s testing123 -r 0
+# eapol_test -c user-ttls-pap.conf -s testing123 -r 0
+
