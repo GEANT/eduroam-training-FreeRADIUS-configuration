@@ -1,3 +1,5 @@
+Install Centos 7 minimal installlation
+
 # yum update
 # yum remove firewalld
 # yum install iptables-services
