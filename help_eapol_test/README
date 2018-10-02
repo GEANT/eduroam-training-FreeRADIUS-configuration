@@ -1,0 +1,3 @@
+eapol_test configuration files
+
+# eapol_test -c user-ttls-pap.conf -s testing123 -r 0 
