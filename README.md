@@ -13,7 +13,10 @@ FreeRADIUS configuration for the eduroam training, where FreeRADIUS act like sim
 ```
 To change inital base DN use follow command like root in /etc/raddb directory :
 
-`# grep -rli 'dc=training,dc=eduroam,dc=si' * | egrep -v '*README*' | xargs -i@ sed -i 's/dc=training,dc=eduroam,dc=si/new-word/g' @`
+```
+# grep -rli 'dc=training,dc=eduroam,dc=si' * | egrep -v '*README*' | xargs -i@ sed -i 's/dc=training,dc=eduroam,dc=si/dc=new,dc=realm/g' @
+# grep -rli 'training.eduroam.si' * | egrep -v '*README*' | xargs -i@ sed -i 's/training\.eduroam\.si/new\.realm/g' @
+```
 
 ## Instaling eapol_test can be done issuing follow commands : 
 
