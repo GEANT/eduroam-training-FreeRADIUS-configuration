@@ -26,8 +26,8 @@ FreeRADIUS configuration for the eduroam training, where FreeRADIUS act like sim
 # cd hostap/wpa_supplicant/
 # cp defconfig .config
 
-edit defconfig to enable (remove #) CONFIG_EAPOL_TEST=y  
-# vi defconfig
+edit .config to enable (remove #) CONFIG_EAPOL_TEST=y  
+# vi .config
 # make eapol_test
 # cp eapol_test /usr/local/bin
 ```
