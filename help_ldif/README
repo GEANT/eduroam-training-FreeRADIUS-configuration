@@ -31,3 +31,13 @@ https://www.itzgeek.com/how-tos/linux/centos-how-tos/step-step-openldap-server-c
 
 grep -rli 'dc=training,dc=eduroam,dc=si' *.ldif | xargs -i@ sed -i 's/dc=training,dc=eduroam,dc=si/dc=pero,dc=hr/g' @
 grep -rli 'dc=training' *.ldif | xargs -i@ sed -i 's/dc=training/dc=pero/g' @
+
+Reset OpenLDAP service
+
+systemctl stop slapd
+systemctl disable slapd
+yum -y remove openldap-servers openldap-clients 
+rm -rf /var/lib/ldap
+userdel ldap
+rm -rf /etc/openldap
+yum install openldap-servers openldap-clients
