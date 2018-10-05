@@ -5,7 +5,7 @@ FreeRADIUS configuration for the eduroam training, where FreeRADIUS act like sim
 ```
 # yum install freeradius freeradius-utils freeradius-ldap freeradius-doc git wget
 # cd /etc
-# rm /etc/raddb
+# rm -rf /etc/raddb
 # git clone https://github.com/GEANT/eduroam-training-FreeRADIUS-configuration.git raddb
 # cd raddb
 # git branch -a | grep -v HEAD | perl -ne 'chomp($_); s|^\*?\s*||; if (m|(.+)/(.+)| && not $d{$2}) {print qq(git branch --track $2 $1/$2\n)} else {$d{$_}=1}' | bash -xfs
