@@ -16,6 +16,7 @@ To change inital base DN use follow command like root in /etc/raddb directory :
 ```
 # grep -rli 'dc=training,dc=eduroam,dc=si' * | egrep -v '*README*' | xargs -i@ sed -i 's/dc=training,dc=eduroam,dc=si/dc=new,dc=realm/g' @
 # grep -rli 'dc=training' * | egrep -v '*README*'  | xargs -i@ sed -i 's/dc=training/dc=new/g' @
+# grep -rli 'dc: training' * | egrep -v '*README*'  | xargs -i@ sed -i 's/dc: training/dc: new/g' @
 # grep -rli 'training.eduroam.si' * | egrep -v '*README*' | xargs -i@ sed -i 's/training\.eduroam\.si/new\.realm/g' @
 ```
 
