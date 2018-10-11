@@ -42,4 +42,5 @@ yum -y remove openldap-servers openldap-clients
 rm -rf /var/lib/ldap
 userdel ldap
 rm -rf /etc/openldap
+yum reinstall openldap
 yum install openldap-servers openldap-clients
