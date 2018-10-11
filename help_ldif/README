@@ -20,7 +20,7 @@ uid=user1,dc=training,dc=eduroam,dc=si eduroam
 # ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif 
 # ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
 
-# ldapadd -Y EXTERNAL -H ldapi:/// -f 02-accessdb.ldif 
+# ldapmodify -Y EXTERNAL -H ldapi:/// -f 02-accessdb.ldif 
 
 # ldapadd -Y EXTERNAL -H ldapi:/// -f 03-org.ldif 
 
@@ -44,3 +44,7 @@ userdel ldap
 rm -rf /etc/openldap
 yum reinstall openldap
 yum install openldap-servers openldap-clients
+
+Dont use if you dont know what you are doing : 
+yum install ldapvi
+ldapvi -h ldapi:/// -Y EXTERNAL -b cn=config
